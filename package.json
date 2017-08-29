@@ -4,5 +4,6 @@
   "description": "Plugin to fix spans getting added to ckeditor in webkit/blink browsers",
   "version": "0.0.1",
   "main": "plugin.js",
+  "types": "plugin.d.ts",
   "dependencies": {}
 }
