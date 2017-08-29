@@ -22,8 +22,6 @@ module.exports = function() {
             // only for Webkit browsers
             if (CKEDITOR.env.webkit) {
 
-                console.log('>>> Using Webkit Span Bugfix');
-
                 var getParentsToClosestBlockElement = function(node) {
                     var parentsToBlockElement = [];
                     var parents;
@@ -142,8 +140,6 @@ module.exports = function() {
 
                             if (blockElementsMerged) {
 
-                                console.log('>>> Detected merge of block elements');
-
                                 for (var i = 0; i < nextNodeSiblingsOnKeyDown.siblings.length; i++) {
 
                                     if (nextNodeSiblingsOnKeyUp.siblings[i] === undefined) break;
@@ -153,10 +149,7 @@ module.exports = function() {
 
                                     // convert text node to SPAN element
                                     if (nodeBeforeKey instanceof CKEDITOR.dom.text && nodeAfterKey instanceof CKEDITOR.dom.element && nodeAfterKey.getName() == 'span') {
-
-                                        console.log('>>> Remove Webkit Span', nodeAfterKey.getOuterHtml());
                                         nodeAfterKey.remove(true);
-
                                     // modify style attribute of inline element
                                     } else if (nodeBeforeKey instanceof CKEDITOR.dom.element
                                             && nodeAfterKey instanceof CKEDITOR.dom.element
@@ -166,15 +159,9 @@ module.exports = function() {
                                             && nodeAfterKey.getAttribute('style') != nodeBeforeKey.getAttribute('style')) {
 
                                         if ( nodeBeforeKey.getAttribute('style') != null ) {
-
-                                            console.log('>>> Update Webkit Span Style Attribute', nodeAfterKey.getOuterHtml(), 'to', nodeBeforeKey.getAttribute('style'));
                                             nodeAfterKey.setAttribute('style', nodeBeforeKey.getAttribute('style'));
-
                                         } else {
-
-                                            console.log('>>> Remove Webkit Span Style Attribute', nodeAfterKey.getOuterHtml());
                                             nodeAfterKey.removeAttribute('style');
-
                                         }
 
                                     }
