@@ -9,7 +9,7 @@
  * @author pr0nbaer
  * @version 0.0.2
  */
-(function() {
+module.exports = function() {
     // register plugin
     CKEDITOR.plugins.add('webkit-span-fix', {
         // initialize plugin
@@ -188,4 +188,4 @@
             }
         }
     });
-})();
+};
