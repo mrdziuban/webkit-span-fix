@@ -11,6 +11,11 @@
  */
 module.exports = function() {
     if (typeof CKEDITOR !== 'undefined') {
+        // confirm plugin has not already been registered
+        if (typeof CKEDITOR.plugins.registered['webkit-span-fix'] !== 'undefined') {
+            return;
+        }
+        
         // register plugin
         CKEDITOR.plugins.add('webkit-span-fix', {
             // initialize plugin
